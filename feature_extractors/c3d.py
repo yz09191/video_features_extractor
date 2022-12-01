@@ -14,44 +14,6 @@ __email__ = "jperezmartin90@gmail.com"
 __status__ = "Development"
 
 
-class C3D_tf(nn.Module):
-    def __init__(self, input_size=112, num_segments=16, pretrained_parts='finetune'):
-        super(C3D_tf, self).__init__()
-        
-        self.__input_size = input_size
-        self.__input_mean = [104, 117, 128]
-        self.__input_std = [1]
-        
-        import tf_model_zoo
-        self.extractor = getattr(tf_model_zoo, 'C3DRes18')(num_segments=num_segments, pretrained_parts=pretrained_parts)
-        self.extractor.last_layer_name = 'fc8'
-        
-        self.__feature_size = self.extractor.fc8.in_features
-        
-    @property
-    def feature_size(self):
-        return self.__feature_size
-    
-    @property
-    def crop_size(self):
-        return self.__input_size
-    
-    @property
-    def scale_size(self):
-        return self.__input_size * 256 // 224
-    
-    @property
-    def input_mean(self):
-        return self.__input_mean
-    
-    @property
-    def input_std(self):
-        return self.__input_std
-        
-    def forward(self, x):
-        return self.extractor(x)
-
-
 class C3D_Original(nn.Module):
     """
     The C3D network as described in [1].
