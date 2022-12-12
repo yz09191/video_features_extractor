@@ -6,12 +6,11 @@ import skimage
 import torch
 from torch.autograd import Variable
 import torch.nn as nn
-import torch.nn.functional as F
 import torchvision
 from IncepResv2 import InceptionResNetV2
 from extract_frames import sample_frames
-from feature_extractors import resnext
-from feature_extractors.c3d import C3D
+import resnext
+from c3d import C3D
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -34,8 +33,6 @@ def read_video(video_dir):
 
 
 def resize_frame(image, target_height=224, target_width=224):
-
-
     if len(image.shape) == 2:
         # 把单通道的灰度图复制三遍变成三通道的图片
         image = np.tile(image[:, :, None], 3)

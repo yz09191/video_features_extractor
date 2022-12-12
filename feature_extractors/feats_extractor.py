@@ -6,7 +6,7 @@ MotionEncoder extracts the motion features from a sequence of frames
 import torch
 import torch.nn as nn
 
-from .c3d import C3D
+from c3d import C3D
 
 __author__ = "jssprz"
 __version__ = "0.0.1"

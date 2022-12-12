@@ -9,21 +9,7 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="njuciairs@114.212.87.252:22 password">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="root@210.28.133.13:20155">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="root@210.28.133.13:20155 password">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
